@@ -2,16 +2,18 @@ package linefollow;
 
 import ch.aplu.robotsim.Gear;
 
-public class ParallelGearTask implements Runnable {
+public class ParallelGearTask extends ParallelTask {
 	
-	private LineFollow app;
 	private Gear gear;
-	private Thread thread;
 
 	public ParallelGearTask(Gear gear, LineFollow lineFollow) {
+		super(lineFollow);
 		this.app = lineFollow;
 		this.gear = gear;
-		thread = new Thread(this);
+	}
+	
+	@Override
+	void start() {
 		thread.start();
 	}
 	
@@ -21,14 +23,14 @@ public class ParallelGearTask implements Runnable {
 			int v = app.getParallelLightSensorTask().getValue();
 		      
 		      System.out.println(v);
-		      /*if (v < 100)  // black
+		      if (v < 100)  // black
 		        gear.forward();
 		      else if (v < 900)  // green
 		        gear.rightArc(0.1);
 		      else if (v > 900)  // yellow
-		        gear.leftArc(0.1);*/
+		        gear.leftArc(0.1);
 		      
-		      gear.rightArc(0.1);
+		      //gear.rightArc(0.1);
 			try {
 				Thread.sleep(5L);
 			} catch (InterruptedException e) {

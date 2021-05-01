@@ -2,20 +2,17 @@ package linefollow;
 
 import ch.aplu.robotsim.LightSensor;
 
-public class ParallelLightSensorTask implements Runnable {
+public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 
-	private LineFollow app;
 	private LightSensor lightSensor;
-	private Thread thread;
 	private int value = -1;
 
 	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow) {
-		this.app = lineFollow;
+		super(lineFollow);
 		this.lightSensor = lightSensor;
-		thread = new Thread(this);
-		thread.start();
 	}
 	
+	@Override
 	public void start() {
 		lightSensor.activate(true);
 		thread.start();

@@ -39,6 +39,9 @@ public class LineFollow {
 	    
 	    gearTask = new ParallelGearTask(gear, this);
 	    lightSensorTask = new ParallelLightSensorTask(ls, this);
+	    
+	    gearTask.start();
+	    lightSensorTask.start();
 	}
 	
 	public ParallelGearTask getParallelGearTask() {
