@@ -1,4 +1,4 @@
-package linefollow;
+package linefollow_mutex;
 
 import ch.aplu.robotsim.LightSensor;
 
@@ -6,6 +6,7 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 
 	private LightSensor lightSensor;
 	private int value = -1;
+	private Object mutex = new Object();
 
 	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow) {
 		super(lineFollow);
@@ -29,8 +30,10 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 		return this.lightSensor;
 	}
 	
-	public synchronized int getValue() {
-		return value;
+	public int getValue() {
+		synchronized (mutex) {
+			return value;
+		}
 	}
 	
 }

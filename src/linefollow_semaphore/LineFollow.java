@@ -1,4 +1,4 @@
-package linefollow;
+package linefollow_semaphore;
 
 import ch.aplu.robotsim.Gear;
 import ch.aplu.robotsim.LegoRobot;

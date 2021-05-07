@@ -1,4 +1,4 @@
-package linefollow;
+package linefollow_mutex;
 
 import ch.aplu.robotsim.Gear;
 
@@ -39,7 +39,7 @@ public class ParallelGearTask extends ParallelTask {
 		}
 	}
 	
-	public synchronized Gear getGear() {
+	public Gear getGear() {
 		return this.gear;
 	}
 

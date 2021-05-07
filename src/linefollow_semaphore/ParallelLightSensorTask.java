@@ -1,4 +1,6 @@
-package linefollow;
+package linefollow_semaphore;
+
+import java.util.concurrent.Semaphore;
 
 import ch.aplu.robotsim.LightSensor;
 
@@ -6,6 +8,8 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 
 	private LightSensor lightSensor;
 	private int value = -1;
+	private Semaphore mutex = new Semaphore(1);
+
 
 	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow) {
 		super(lineFollow);
@@ -29,8 +33,15 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 		return this.lightSensor;
 	}
 	
-	public synchronized int getValue() {
-		return value;
+	public int getValue() {
+		try {
+            mutex.acquire();
+            return value;
+        } catch (InterruptedException e) {
+            return -1;
+        } finally {
+            mutex.release();
+        }
 	}
 	
 }
