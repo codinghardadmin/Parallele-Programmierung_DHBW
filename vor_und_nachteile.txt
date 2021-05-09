@@ -1,0 +1,13 @@
+Sperre; lock/monitor:
+➔ nur ein Prozess kann in den kritischen Bereich
+➔ Sperre nur im Prozess global
+
+wechselseitiger Ausschluss; mutual exclusion (mutex):
+➔ nur ein Prozess kann in den kritischen Bereich
+➔ Sperre für alle Prozesse global
+
+Semaphor:
+➔ mehrere Prozesse können gleichzeitig in den kritischen Bereich
+➔ Sperre für alle Prozesse global
+
+=> Bitte ergänzen und Vor- sowie Nachteile googlen
