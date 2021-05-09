@@ -20,21 +20,15 @@ public class ParallelGearTask extends ParallelTask {
 	@Override
 	public void run() {
 		for (;;) {
-			int v = app.getParallelLightSensorTask().getValue();
+			int left = app.getParallelLightSensorTaskLeft().getValue();
+			int right = app.getParallelLightSensorTaskRight().getValue();
 		      
-		      System.out.println(v);
-		      if (v < 100)  // black
-		        gear.forward();
-		      else if (v < 900)  // green
-		        gear.rightArc(0.1);
-		      else if (v > 900)  // yellow
-		        gear.leftArc(0.1);
-		      
-		      //gear.rightArc(0.1);
-			try {
-				Thread.sleep(5L);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			if (left < 200) {
+				gear.leftArc(0.1);
+			} else if (right < 200) {
+				gear.rightArc(0.1);
+			} else {
+				gear.forward();
 			}
 		}
 	}

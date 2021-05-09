@@ -10,7 +10,8 @@ import ch.aplu.robotsim.SensorPort;
 public class LineFollow {
 	
 	private ParallelGearTask gearTask;
-	private ParallelLightSensorTask lightSensorTask;
+	private ParallelLightSensorTask lightSensorTaskLeft;
+	private ParallelLightSensorTask lightSensorTaskRight;
 
 	/*static
 	  {
@@ -33,24 +34,32 @@ public class LineFollow {
 		LegoRobot robot = new LegoRobot();
 		
 		Gear gear = new Gear();
-	    LightSensor ls = new LightSensor(SensorPort.S3);
+	    LightSensor links = new LightSensor(SensorPort.S2);
+	    LightSensor rechts = new LightSensor(SensorPort.S1);
 	    
 	    robot.addPart(gear);
-	    robot.addPart(ls);
+	    robot.addPart(links);
+	    robot.addPart(rechts);
 	    
 	    gearTask = new ParallelGearTask(gear, this);
-	    lightSensorTask = new ParallelLightSensorTask(ls, this);
+	    lightSensorTaskLeft = new ParallelLightSensorTask(links, this, "LEFT");
+	    lightSensorTaskRight = new ParallelLightSensorTask(rechts, this, "RIGHT");
 	    
 	    gearTask.start();
-	    lightSensorTask.start();
+	    lightSensorTaskLeft.start();
+	    lightSensorTaskRight.start();
 	}
 	
 	public  ParallelGearTask getParallelGearTask() {
 		return gearTask;
 	}
 
-	public  ParallelLightSensorTask getParallelLightSensorTask() {
-		return lightSensorTask;
+	public  ParallelLightSensorTask getParallelLightSensorTaskLeft() {
+		return lightSensorTaskLeft;
+	}
+	
+	public  ParallelLightSensorTask getParallelLightSensorTaskRight() {
+		return lightSensorTaskRight;
 	}
 	
 	public static void main(String[] args) {

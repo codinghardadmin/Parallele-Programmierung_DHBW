@@ -6,13 +6,14 @@ import ch.aplu.robotsim.LightSensor;
 
 public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 
+	private String name;
 	private LightSensor lightSensor;
 	private int value = -1;
 	private Semaphore mutex = new Semaphore(1);
 
-
-	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow) {
+	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow, String name) {
 		super(lineFollow);
+		this.name = name;
 		this.lightSensor = lightSensor;
 	}
 	
@@ -33,7 +34,7 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 		return this.lightSensor;
 	}
 	
-	public int getValue() {
+	public synchronized int getValue() {
 		try {
             mutex.acquire();
             return value;
@@ -43,5 +44,9 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
             mutex.release();
         }
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+
 }

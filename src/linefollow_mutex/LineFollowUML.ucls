@@ -1,78 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="linefollow_mutex.ParallelTask" project="Parallele-Programmierung_DHBW" 
-    file="/Parallele-Programmierung_DHBW/src/linefollow_mutex/ParallelTask.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="824" y="330"/>    
+  <class id="1" language="java" name="linefollow_mutex.ParallelTask" project="RobotSim" 
+    file="/RobotSim/src/linefollow_mutex/ParallelTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="142" x="159" y="221"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="linefollow_mutex.ParallelLightSensorTask" project="Parallele-Programmierung_DHBW" 
-    file="/Parallele-Programmierung_DHBW/src/linefollow_mutex/ParallelLightSensorTask.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="420" y="519"/>    
+  <class id="2" language="java" name="linefollow_mutex.LineFollow" project="RobotSim" 
+    file="/RobotSim/src/linefollow_mutex/LineFollow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="304" x="159" y="378"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="linefollow_mutex.ParallelGearTask" project="Parallele-Programmierung_DHBW" 
-    file="/Parallele-Programmierung_DHBW/src/linefollow_mutex/ParallelGearTask.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="294" y="93"/>    
+  <class id="3" language="java" name="linefollow_mutex.ParallelGearTask" project="RobotSim" 
+    file="/RobotSim/src/linefollow_mutex/ParallelGearTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="192" x="468" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="linefollow_mutex.LineFollow" project="Parallele-Programmierung_DHBW" 
-    file="/Parallele-Programmierung_DHBW/src/linefollow_mutex/LineFollow.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="861" y="142"/>    
+  <class id="4" language="java" name="linefollow_mutex.ParallelLightSensorTask" project="RobotSim" 
+    file="/RobotSim/src/linefollow_mutex/ParallelLightSensorTask.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="290" x="138" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="5">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="6" name="app"/>      
-      <multiplicity id="7" minimum="0" maximum="1"/>    
+  <generalization id="5">    
+    <bendpoint x="128" y="378"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="6">    
+    <bendpoint x="493" y="378"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="7">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="8" name="lightSensorTaskLeft"/>      
+      <multiplicity id="9" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="8">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="9" name="gearTask"/>      
-      <multiplicity id="10" minimum="0" maximum="1"/>    
+  <association id="10">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="11" name="lightSensorTaskRight"/>      
+      <multiplicity id="12" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="13">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="14" name="gearTask"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="11">    
-    <bendpoint x="299" y="241"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="lightSensorTask"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
+  <association id="16">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="17" name="app"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="15">    
-    <bendpoint x="640" y="241"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
