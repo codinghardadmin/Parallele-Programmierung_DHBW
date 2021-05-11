@@ -12,14 +12,6 @@ public class LineFollow {
 	private ParallelGearTask gearTask;
 	private ParallelLightSensorTask lightSensorTaskLeft;
 	private ParallelLightSensorTask lightSensorTaskRight;
-
-	/*static
-	  {
-	    RobotContext.setStartPosition(40, 460);
-	    RobotContext.setStartDirection(-90);
-	    RobotContext.useBackground("sprites/road.gif");
-	    RobotContext.useObstacle("sprites/chocolate.gif", 400, 50);
-	  }*/
 	
 	static
 	  {
@@ -48,6 +40,25 @@ public class LineFollow {
 	    gearTask.start();
 	    lightSensorTaskLeft.start();
 	    lightSensorTaskRight.start();
+	    
+	    for (;;) {
+	    	int left = getParallelLightSensorTaskLeft().getValue();
+			int right = getParallelLightSensorTaskRight().getValue();
+		      
+			if (left < 200) {
+				gearTask.left();
+			} else if (right < 200) {
+				gearTask.right();
+			} else {
+				gear.forward();
+			}
+			
+			try {
+				Thread.sleep(10L);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+	    }
 	}
 	
 	public  ParallelGearTask getParallelGearTask() {

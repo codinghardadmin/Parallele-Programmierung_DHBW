@@ -1,0 +1,30 @@
+### Allgemein Semaphore
+
+Lösungskonzept: Semaphore 
+Parallelisierung unter Verwendung von Semaphoren als Signalisierungsmechanismus.
+Vorteile des Konzepts
+•	es ermöglicht mehr als einem Thread den Zugriff auf den kritischen Abschnitt 
+•	erlauben nicht, dass mehrere Prozesse in den kritischen Bereich gelangen
+•	da es bei Semaphor busy waiting gibt, kommt es nie zu einer Verschwendung von Prozesszeit und Ressourcen
+•	ermöglichen eine flexible Verwaltung von Ressourcen
+•	die Sperre ist für alle Prozesse global
+Nachteile des Konzepts
+•	das Betriebssystem muss …
+o	den Überblick über alle Aufrufe zum Warten (wait) behalten 
+o	und die Semaphore benachrichtigen (signal)
+•	eine der größten Einschränkungen eines Semaphors ist die Prioritätsumkehrung
+•	ihre Verwendung wird nie erzwungen
+o	sondern ist nur eine Konvention
+•	Deadlocks im Semaphor vermeiden
+o	Operationen Wait und Signal müssen in der richtigen Reihenfolge ausgeführt werden
+•	fehleranfälliges Programmieren 
+o	beim down-Operation -- kein wechselseitiger Ausschluss
+o	beim up-Operation -- mögliche Verklemmung
+
+
+### Softwarespezifisch
+
++ Es ist möglich, dass mehrere Threads (z.B. mehrere Programme) parallel auf die Motoren zugreifen können. So kann die Anzahl der Zugriffe auf 2 begrenzt werden
++ Es können mehrere Threads gleichzeitig die Sensoren auslesen.
+
+- Es kann auch hier bei Verschachtelung zu einem Deadlock kommen.

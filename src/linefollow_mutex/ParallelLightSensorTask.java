@@ -32,7 +32,7 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 		return this.lightSensor;
 	}
 	
-	public synchronized int getValue() {
+	public int getValue() {
 		synchronized (mutex) {
 			return value;
 		}

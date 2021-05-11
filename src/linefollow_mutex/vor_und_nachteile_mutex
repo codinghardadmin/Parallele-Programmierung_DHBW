@@ -1,0 +1,27 @@
+### Allgemein Mutex
+
+Lösungskonzept: Mutex 
+Parallelisierung unter Verwendung eines wechselseitigen Ausschlusses (mutual exclusion).
+Vorteile des Konzepts
+•	einfache Sperre, ist für alle Prozesse global
+•	nur ein Prozess kann in den kritischen Bereich
+o	keine Race-Conditions 
+o	die Daten bleiben immer konsistent.
+•	die Operationen benötigen nur sehr kurze Zeit
+Nachteile des Konzepts
+•	ein Thread erhält eine Sperre / wechselt in den Ruhezustand / ist vorbelegt 
+o	der andere Thread kann möglicherweise nicht fortfahren
+o	kann zum Verhungern führen
+•	es kann nicht in einem anderen Kontext als dem, der es erworben hat, gesperrt oder entsperrt werden. 
+•	es ist jeweils nur ein Thread im kritischen Bereich zulässig
+•	die normale Implementierung kann zu einem ausgelasteten Wartezustand führen
+o	es wird CPU-Zeit verschwendet 
+
+
+### Softwarespezifisch
+
++ Es werden die notwendigen Codeblöcke für die Aktoren und Sensoren synchronisiert.
++ Für die Sensoren ist ein einfacher Mutex ausreichend, da nur der Hauptprozess darauf zugreift.
++ Für die Aktoren ist es sinnvoll, nur einen Befehl (entweder links oder rechts oder vorwärts) auszuführen. Ein einfacher synchronisierter Mutex reicht hierfür aus.
+
+- Falls mehrere Programmteile auf die Sensoren oder Motoren zugreifen, wäre es eventuell hilfreich eine bestimmte Anzahl an Threads zuzulassen.

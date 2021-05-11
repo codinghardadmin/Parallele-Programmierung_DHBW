@@ -5,6 +5,7 @@ import ch.aplu.robotsim.Gear;
 public class ParallelGearTask extends ParallelTask {
 	
 	private Gear gear;
+	private Object mutex = new Object();
 
 	public ParallelGearTask(Gear gear, LineFollow lineFollow) {
 		super(lineFollow);
@@ -20,21 +21,30 @@ public class ParallelGearTask extends ParallelTask {
 	@Override
 	public void run() {
 		for (;;) {
-			int left = app.getParallelLightSensorTaskLeft().getValue();
-			int right = app.getParallelLightSensorTaskRight().getValue();
-		      
-			if (left < 200) {
-				gear.leftArc(0.1);
-			} else if (right < 200) {
-				gear.rightArc(0.1);
-			} else {
-				gear.forward();
-			}
+			
 		}
 	}
 	
-	public synchronized Gear getGear() {
+	public Gear getGear() {
 		return this.gear;
+	}
+	
+	public void left() {
+		synchronized (mutex) {
+			gear.leftArc(0.1);
+		}
+	}
+	
+	public void right() {
+		synchronized (mutex) {
+			gear.rightArc(0.1);
+		}
+	}
+	
+	public void forward() {
+		synchronized (mutex) {
+			gear.forward();
+		}
 	}
 
 }
