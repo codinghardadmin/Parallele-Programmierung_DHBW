@@ -7,7 +7,7 @@ public class ParallelGearTask extends ParallelTask {
 	private Gear gear;
 	private Object mutex = new Object();
 
-	public ParallelGearTask(Gear gear, LineFollow lineFollow) {
+	public ParallelGearTask(Gear gear, LineFollowMutex lineFollow) {
 		super(lineFollow);
 		this.app = lineFollow;
 		this.gear = gear;

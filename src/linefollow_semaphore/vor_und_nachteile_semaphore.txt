@@ -26,5 +26,7 @@ o	beim up-Operation -- mögliche Verklemmung
 
 + Es ist möglich, dass mehrere Threads (z.B. mehrere Programme) parallel auf die Motoren zugreifen können. So kann die Anzahl der Zugriffe auf 2 begrenzt werden
 + Es können mehrere Threads gleichzeitig die Sensoren auslesen.
++ Besseres Handling bei Dauerschleifen. Mehrere Prozesse können ohne Probleme auf die Ressourcen zugreifen.
 
 - Es kann auch hier bei Verschachtelung zu einem Deadlock kommen.
+- Höherer Aufwand beim Programmieren.

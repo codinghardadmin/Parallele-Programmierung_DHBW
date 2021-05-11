@@ -9,7 +9,7 @@ public class ParallelLightSensorTask extends ParallelTask implements Runnable {
 	private int value = -1;
 	private Object mutex = new Object();
 
-	public ParallelLightSensorTask(LightSensor lightSensor, LineFollow lineFollow, String name) {
+	public ParallelLightSensorTask(LightSensor lightSensor, LineFollowMutex lineFollow, String name) {
 		super(lineFollow);
 		this.name = name;
 		this.lightSensor = lightSensor;

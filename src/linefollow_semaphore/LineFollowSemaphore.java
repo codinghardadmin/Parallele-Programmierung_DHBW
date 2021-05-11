@@ -1,4 +1,4 @@
-package linefollow_mutex;
+package linefollow_semaphore;
 
 import ch.aplu.robotsim.Gear;
 import ch.aplu.robotsim.LegoRobot;
@@ -7,7 +7,7 @@ import ch.aplu.robotsim.RobotContext;
 import ch.aplu.robotsim.SensorPort;
 
 
-public class LineFollow {
+public class LineFollowSemaphore {
 	
 	private ParallelGearTask gearTask;
 	private ParallelLightSensorTask lightSensorTaskLeft;
@@ -20,7 +20,7 @@ public class LineFollow {
 	    RobotContext.useBackground("sprites/linefollow2.png");
 	  }
 	
-	public LineFollow() {
+	public LineFollowSemaphore() {
 		System.out.println("LineFollow App RobotSim");
 		
 		LegoRobot robot = new LegoRobot();
@@ -74,6 +74,6 @@ public class LineFollow {
 	}
 	
 	public static void main(String[] args) {
-		new LineFollow();
+		new LineFollowSemaphore();
 	}
 }

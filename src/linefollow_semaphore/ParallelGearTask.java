@@ -9,7 +9,7 @@ public class ParallelGearTask extends ParallelTask {
 	private Gear gear;
 	private Semaphore mutex = new Semaphore(1);
 
-	public ParallelGearTask(Gear gear, LineFollow lineFollow) {
+	public ParallelGearTask(Gear gear, LineFollowSemaphore lineFollow) {
 		super(lineFollow);
 		this.app = lineFollow;
 		this.gear = gear;

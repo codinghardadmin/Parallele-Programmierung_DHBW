@@ -2,10 +2,10 @@ package linefollow_mutex;
 
 public abstract class ParallelTask implements Runnable {
 
-	protected LineFollow app;
+	protected LineFollowMutex app;
 	protected Thread thread;
 	
-	protected ParallelTask(LineFollow lineFollow) {
+	protected ParallelTask(LineFollowMutex lineFollow) {
 		super();
 		this.app = lineFollow;
 		this.thread = new Thread(this);

@@ -25,3 +25,4 @@ o	es wird CPU-Zeit verschwendet
 + Für die Aktoren ist es sinnvoll, nur einen Befehl (entweder links oder rechts oder vorwärts) auszuführen. Ein einfacher synchronisierter Mutex reicht hierfür aus.
 
 - Falls mehrere Programmteile auf die Sensoren oder Motoren zugreifen, wäre es eventuell hilfreich eine bestimmte Anzahl an Threads zuzulassen.
+- Bei schnellem Abfrufen und Schreiben der Codeblöcke kann es zu Problemen kommen (Kein warten, Dauerschleife)
